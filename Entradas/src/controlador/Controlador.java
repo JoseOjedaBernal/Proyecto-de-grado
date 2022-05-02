@@ -1,47 +1,34 @@
 package controlador;
+import java.util.Random;
+import java.util.concurrent.TimeUnit;
+
 import com.github.strikerx3.jxinput.*;
 import com.github.strikerx3.jxinput.enums.*;
 import com.github.strikerx3.jxinput.exceptions.XInputNotLoadedException;
-
+import interfaz.ScatterAdd;
+import modelo.Gamepad;
 
 public class Controlador {
-int s = 1;
+int stop = 0;
+private static final Random rand = new Random();
 
 	public Controlador() {
+	Gamepad g = new Gamepad();
+	ScatterAdd n = new ScatterAdd("titulo");	
+	n.ejecutar();
 		
-		try {
-		XInputDevice14 device = XInputDevice14.getDeviceFor(0);
-		if (device.poll()) {
-		    // Retrieve the delta
-		    XInputComponents components = device.getComponents();
 
-		    
-		    XInputAxes axes = components.getAxes();
-
-		    // Buttons and axes have public fields (although this is not idiomatic Java)
-
-		    // Retrieve button state
-	
-
-		    // Check if Guide button is supported
-
-
-		    // Retrieve axis state
-		    while(device.poll()) {
-
-		    float acceleration = axes.lx;
-		    float brake = axes.ly; 
-		    
-		    System.out.println(acceleration +" " +brake);
-		    }
-		} else {
-		    // Controller is not connected; display a message
-			System.out.print("nope");
-		}
+	while (g.getDevice().poll()) {
+		    n.series.clear();
+		       
+	        n.series.add(g.getX(),g.getY());
+	        try {
+				TimeUnit.MILLISECONDS.sleep(10);;
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	}
-		catch(XInputNotLoadedException e){
-			
-		}
 		
 	}
 	
