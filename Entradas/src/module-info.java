@@ -1,6 +1,0 @@
-module Entradas {
-	requires jxinput;
-	
-	
-	
-}

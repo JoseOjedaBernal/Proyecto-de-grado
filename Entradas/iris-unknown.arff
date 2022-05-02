@@ -1,0 +1,11 @@
+@RELATION iris-unknown
+
+@ATTRIBUTE X	NUMERIC
+@ATTRIBUTE Y 	NUMERIC
+@ATTRIBUTE Drift 	{SI,NO}
+
+@DATA
+0.2300,0.9700,?
+%
+%
+%
