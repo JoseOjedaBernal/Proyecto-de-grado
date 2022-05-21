@@ -6,6 +6,7 @@ import com.github.strikerx3.jxinput.*;
 import com.github.strikerx3.jxinput.enums.*;
 import com.github.strikerx3.jxinput.exceptions.XInputNotLoadedException;
 import interfaz.ScatterAdd;
+import interfaz.TestRedirect;
 import modelo.ClassificationPrediction;
 import modelo.Gamepad;
 
@@ -19,6 +20,7 @@ private static final Random rand = new Random();
 
 	Gamepad g = new Gamepad();
 	ScatterAdd n = new ScatterAdd("titulo");	
+	TestRedirect t = new TestRedirect();
 	n.ejecutar();
 	
 
