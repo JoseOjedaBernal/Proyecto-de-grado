@@ -22,11 +22,6 @@
     <version>1.5.3</version>
 </dependency>
 <dependency>
-    <groupId>com.github.strikerx3</groupId>
-    <artifactId>jxinput</artifactId>
-    <version>1.0.0</version>
-</dependency>
-<dependency>
     <groupId>nz.ac.waikato.cms.weka</groupId>
     <artifactId>weka-stable</artifactId>
     <version>3.8.6</version>

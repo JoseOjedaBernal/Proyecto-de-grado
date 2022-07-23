@@ -13,22 +13,19 @@ public class ClassificationPrediction {
 	
 	DataSource source;
 	Instances traindata;
-	Attribute X;
-    Attribute Y;
     Instance newInst;
     NaiveBayes nb;
     DataSource source2;
 	Instances testdata;
+	Instances more;
 	
 	public void ini() throws Exception{
 		source = new DataSource("iris.arff");
 		traindata = source.getDataSet();
+
 		traindata.setClassIndex(traindata.numAttributes()-1);
 		int numClasses = traindata.numClasses();
-		for (int i=0;i<numClasses;i++){
-			String classValue = traindata.classAttribute().value(i);
-			System.out.println("the "+i+"th class value:"+classValue);
-		}
+
 		nb = new NaiveBayes();
 		nb.buildClassifier(traindata);
 
@@ -38,13 +35,19 @@ public class ClassificationPrediction {
 		
 		
 
-		X = new Attribute("X");		
-	    Y = new Attribute("Y");
+		more = source.getStructure();
 	    newInst = new DenseInstance(3);
 	    newInst.setDataset(testdata);
+	    newInst.setValue(0, 1); 
+		newInst.setValue(1, 1); 
+		newInst.setValue(2, "NO");
+	    more.add(newInst);
+
+
+
 	}
 	
-	public void predict(double x, double y) throws Exception {
+	public String predict(double x, double y) throws Exception {
 		
 		    
 			newInst.setValue(0, x); 
@@ -54,6 +57,7 @@ public class ClassificationPrediction {
 			double preNB = nb.classifyInstance(newInst);
 			String predString = traindata.classAttribute().value((int) preNB);
 			System.out.println(predString);
+			return predString;
 		}
 	
 
