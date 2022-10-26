@@ -1,6 +1,7 @@
 package modelo;
 import weka.classifiers.Evaluation;
 import weka.classifiers.bayes.NaiveBayes;
+import weka.classifiers.functions.SMO;
 import weka.core.Attribute;
 import weka.core.DenseInstance;
 import weka.core.Instance;
@@ -13,9 +14,9 @@ public class ClassificationPrediction {
 	
 	DataSource source;
 	Instances traindata;
-    Instance newInst;
-    NaiveBayes nb;
-    DataSource source2;
+    public Instance newInst;
+    public NaiveBayes nb;
+    public DataSource source2;
 	Instances testdata;
 	Instances more;
 	
@@ -56,7 +57,7 @@ public class ClassificationPrediction {
 			
 			double preNB = nb.classifyInstance(newInst);
 			String predString = traindata.classAttribute().value((int) preNB);
-			System.out.println(predString);
+                        System.out.println(x  +","+ y+ ","+predString);
 			return predString;
 		}
 	
